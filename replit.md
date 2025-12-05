@@ -13,21 +13,18 @@ All agents share access to a RAG search tool for document retrieval.
 ├── agents/                  # Main agents package
 │   ├── __init__.py         # Package exports
 │   ├── model.py            # LLM configuration (Google Gemini)
-│   ├── states.py           # Pydantic schemas (QuizTask, Quiz, WorkflowState)
+│   ├── states.py           # Pydantic schemas (QuizTask, Quiz)
 │   ├── tools.py            # Docs class with RAG vector store
 │   ├── prompts.py          # Prompt templates for all agents
-│   ├── summarizer.py       # Token-efficient PDF summarization (stuff/refine)
+│   ├── summarizer.py       # Token-efficient PDF summarization
 │   ├── examiner.py         # Quiz generation with structured output
 │   ├── supervisor.py       # Socratic tutoring feedback and chat
 │   └── sessions.py         # Session management for API state
-├── documents/              # PDF documents to process
-│   └── Lecture3.pdf        # Sample NLP lecture on word embeddings
+├── documents/              # PDF upload directory
 ├── app.py                  # FastAPI REST API
-├── main.py                 # Legacy terminal app (reference only)
 ├── requirements.txt        # Python dependencies for Docker/pip
 ├── Dockerfile              # Docker container setup
-├── .dockerignore           # Docker build exclusions
-└── pyproject.toml          # Python dependencies (uv/Replit)
+└── .dockerignore           # Docker build exclusions
 ```
 
 ## Dependencies
