@@ -1,13 +1,10 @@
-from langchain.chat_models import init_chat_model
 from langchain_core.prompts import ChatPromptTemplate
 from langgraph.prebuilt import create_react_agent
 from agents.states import Quiz
 from agents.prompts import SUPERVISOR_SYSTEM_PROMPT, SUPERVISOR_USER_PROMPT, SUPERVISOR_CHAT_PROMPT
 from agents.tools import Docs
-from typing import List, Optional, Any, Tuple, Union
-from dotenv import load_dotenv
-
-load_dotenv()
+from agents.model import llm
+from typing import List, Optional, Tuple
 
 
 def create_supervisor_agent(docs: Docs):
@@ -20,7 +17,6 @@ def create_supervisor_agent(docs: Docs):
     Returns:
         A LangGraph ReAct agent configured for tutoring
     """
-    llm = init_chat_model("groq:meta-llama/llama-4-maverick-17b-128e-instruct")
     search_tool = docs.as_search_tool()
     
     agent = create_react_agent(
@@ -76,7 +72,6 @@ def provide_feedback(
     Returns:
         Feedback string from the supervisor
     """
-    llm = init_chat_model("groq:meta-llama/llama-4-maverick-17b-128e-instruct")
     search_tool = docs.as_search_tool()
     
     quiz_results = format_quiz_results(quiz, user_answers)
@@ -118,8 +113,6 @@ def chat_with_supervisor(
     Returns:
         Supervisor's response
     """
-    llm = init_chat_model("groq:meta-llama/llama-4-maverick-17b-128e-instruct")
-    
     context_docs = docs.similarity_search(user_message, k=3)
     context = "\n\n".join(doc.page_content for doc in context_docs)
     

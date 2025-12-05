@@ -1,14 +1,11 @@
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain.chat_models import init_chat_model
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.documents import Document
-from dotenv import load_dotenv
+from agents.model import llm
 from typing import List
 from math import ceil
 import time
-
-load_dotenv()
 
 
 def summarize_pdf(
@@ -43,8 +40,6 @@ def summarize_pdf(
         chunk_overlap=chunk_overlap,
     )
     split_docs: List[Document] = splitter.split_documents(docs)
-
-    llm = init_chat_model("groq:meta-llama/llama-4-maverick-17b-128e-instruct")
 
     map_prompt = ChatPromptTemplate.from_template(
         "Summarize the following text in 3-5 short bullet points.\n\n{chunk}"
