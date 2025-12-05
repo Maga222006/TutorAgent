@@ -10,7 +10,6 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY agents/ ./agents/
-COPY documents/ ./documents/
 COPY app.py .
 
 RUN mkdir -p documents

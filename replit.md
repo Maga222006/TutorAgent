@@ -94,8 +94,16 @@ To run with Docker on your own server:
 # Build the image
 docker build -t ai-tutor .
 
-# Run with your Gemini API key
+# Option 1: Run with environment variable
 docker run -p 5000:5000 -e GEMINI_API_KEY=your-key-here ai-tutor
+
+# Option 2: Run with .env file (recommended)
+docker run -p 5000:5000 -v $(pwd)/.env:/app/.env ai-tutor
+```
+
+Create a `.env` file with:
+```
+GEMINI_API_KEY=your-key-here
 ```
 
 ## Recent Changes
