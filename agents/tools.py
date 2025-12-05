@@ -37,17 +37,19 @@ class Docs:
 
     def as_search_tool(self):
         """Return a LangChain tool for searching the document."""
-        @tool(name="search_in_docs", response_format="content_and_artifact")
-        def _search_in_docs(query: str):
+        vector_store = self.vector_store
+        
+        @tool
+        def search_in_docs(query: str) -> str:
             """Retrieve information from the uploaded document to answer a query."""
-            retrieved_docs = self.vector_store.similarity_search(query, k=2)
+            retrieved_docs = vector_store.similarity_search(query, k=2)
             serialized = "\n\n".join(
                 f"Source: {doc.metadata}\nContent: {doc.page_content}"
                 for doc in retrieved_docs
             )
-            return serialized, retrieved_docs
+            return serialized
         
-        return _search_in_docs
+        return search_in_docs
 
     def get_diverse_chunks_mmr(self, query: str, k: int = 30):
         """Get diverse chunks using MMR (Maximal Marginal Relevance)."""
