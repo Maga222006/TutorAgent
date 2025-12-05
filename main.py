@@ -13,10 +13,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def check_api_key():
-    """Check if GROQ_API_KEY is set."""
-    if not os.getenv("GROQ_API_KEY"):
-        print("ERROR: GROQ_API_KEY environment variable not set.")
-        print("Please set your Groq API key to use this system.")
+    """Check if GEMINI_API_KEY is set."""
+    if not os.getenv("GEMINI_API_KEY"):
+        print("ERROR: GEMINI_API_KEY environment variable not set.")
+        print("Please set your Google Gemini API key to use this system.")
         return False
     return True
 
@@ -133,7 +133,7 @@ def main():
     print("-" * 40)
     
     if not check_api_key():
-        print("\nTo get a Groq API key, visit: https://console.groq.com/")
+        print("\nTo get a Gemini API key, visit: https://aistudio.google.com/apikey")
         return
     
     print("\nSelect mode:")

@@ -28,14 +28,14 @@ All agents share access to a RAG search tool for document retrieval.
 
 ## Dependencies
 - langchain, langchain-community, langchain-core, langgraph
-- langchain-groq (for Groq LLM integration)
+- langchain-google-genai (for Google Gemini LLM integration)
 - langchain-huggingface (for sentence-transformers embeddings)
 - pypdf (PDF loading)
 - pydantic (structured outputs)
 - faiss-cpu, chromadb (vector stores)
 
 ## Environment Variables
-- `GROQ_API_KEY` - Required. Groq API key for LLM access
+- `GEMINI_API_KEY` - Required. Google Gemini API key for LLM access
 
 ## Usage
 Run `python main.py` to start. Choose:
@@ -43,7 +43,7 @@ Run `python main.py` to start. Choose:
 2. Interactive mode - User provides PDF path and quiz answers
 
 ## Architecture
-- Uses Groq with `meta-llama/llama-4-maverick-17b-128e-instruct` model
+- Uses Google Gemini with `gemini-2.0-flash-lite` model
 - Vector store: InMemoryVectorStore with sentence-transformers embeddings
 - Summarization: Map-reduce pattern with batched parallel processing
 - Quiz generation: Structured output with Pydantic validation
