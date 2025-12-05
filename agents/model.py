@@ -3,4 +3,4 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-llm = init_chat_model("groq:meta-llama/llama-4-maverick-17b-128e-instruct")
+llm = init_chat_model("google_genai:gemini-2.0-flash-lite")
