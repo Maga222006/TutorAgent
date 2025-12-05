@@ -1,0 +1,14 @@
+__pycache__
+*.pyc
+*.pyo
+.git
+.gitignore
+.env
+*.md
+.local/
+attached_assets/
+*.lock
+pyproject.toml
+main.py
+.replit
+replit.nix

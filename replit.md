@@ -24,7 +24,10 @@ All agents share access to a RAG search tool for document retrieval.
 │   └── Lecture3.pdf        # Sample NLP lecture on word embeddings
 ├── app.py                  # FastAPI REST API
 ├── main.py                 # Legacy terminal app (reference only)
-└── pyproject.toml          # Python dependencies
+├── requirements.txt        # Python dependencies for Docker/pip
+├── Dockerfile              # Docker container setup
+├── .dockerignore           # Docker build exclusions
+└── pyproject.toml          # Python dependencies (uv/Replit)
 ```
 
 ## Dependencies
@@ -85,7 +88,18 @@ Example workflow:
 - Quiz generation: Structured output with Pydantic validation
 - Session management: In-memory session storage with Docs, Quiz, and chat history
 
+## Docker Usage
+To run with Docker on your own server:
+```bash
+# Build the image
+docker build -t ai-tutor .
+
+# Run with your Gemini API key
+docker run -p 5000:5000 -e GEMINI_API_KEY=your-key-here ai-tutor
+```
+
 ## Recent Changes
+- 2025-12-05: Added requirements.txt and Dockerfile for portability
 - 2025-12-05: Converted to FastAPI REST API with session management
 - 2025-12-05: Added sessions.py for managing user sessions
 - 2025-12-05: Created app.py with all API endpoints
