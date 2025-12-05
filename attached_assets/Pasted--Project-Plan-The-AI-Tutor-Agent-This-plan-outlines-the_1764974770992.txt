@@ -1,0 +1,104 @@
+🏆 Project Plan: The AI Tutor Agent
+This plan outlines the architecture for a multi-agent system combining RAG, structured LLM output, and a gamified UI.
+Phase 1: Foundation & Data Ingestion (RAG Core)
+Step
+Component
+Action
+Tech Stack
+1.0
+File Uploader
+Accepts user file (PDF, DOCX).
+UI built with LovableUI
+1.1
+Document Processing
+Chunks and embeds the file text.
+LangChain Loaders & Text Splitters.
+1.2
+Vector Store
+Stores embedded chunks. Serves as the universal searchable truth for all agents.
+Embeddings (OpenAI/Google), Vector Store (ChromaDB).
+
+Phase 2: Agent Definitions & Structured Output
+2.1 The Pydantic Quiz Schema (The Data Contract)
+The Examiner must adhere to this exact structure for the UI to function:
+Field Name
+Type
+Description
+question_id
+int
+Unique tracking identifier.
+task_line
+str
+The actual question text.
+question_format
+Literal
+Defines UI component: ['matching', 'fill_gap', 'multiple_choice', 'type_in'].
+answer_options
+`List[str]
+None`
+correct_answer
+`str
+List[str]`
+source_chunk_id
+str
+Vector DB key to retrieve original context.
+
+2.2 Multi-Agent Roles
+Agent
+Primary Function
+Tools/Access
+Output/Data
+Summarizer
+Creates a concise, bulleted outline of the source file.
+RAG (File Retrieval).
+Summary_Store (Shared Context).
+Examiner
+Generates the complete quiz, strictly following the Pydantic schema.
+RAG, Summary_Store.
+Quiz_Data (List of structured questions).
+Supervisor
+Provides personalized, Socratic feedback on user answers.
+RAG (to find source material), Summary_Store.
+Chat History (User-facing dialogue).
+
+Phase 3: Agentic Workflow & Control Flow (LangGraph/LangChain Agents)
+Stage
+Trigger
+Agent(s) Involved
+Outcome & Transition
+A. Ingestion
+User uploads file.
+Summarizer
+Outcome: Summary_Store is created. UI displays summary.
+B. Quiz Generation
+User clicks "Generate Quiz."
+Examiner
+Outcome: Quiz_Data is generated (all at once). UI enables quiz tasks.
+C. Quiz Completion
+User submits all answers.
+(No Agent)
+Transition: User answers sent to the Supervisor endpoint.
+D. Feedback Loop
+User asks a question (e.g., "Why was I wrong on Q3?").
+Supervisor
+Action: Supervisor retrieves the source_chunk_id and provides targeted explanation and coaching via chat.
+E. Reset
+User clicks "New Quiz" / "Back to Summary."
+Router
+Transition: Jumps back to Stage B (New Quiz) or reloads Stage A data (Summary).
+
+Phase 4: Frontend Development (Duolingo-Style UI)
+UI View
+Functionality
+Key Dependency
+Summary View
+Displays the bulleted output from the Summarizer.
+Summary_Store.
+Quiz Renderer
+Dynamically renders custom components based on question_format (Matching, Drag-and-Drop, Fill-in-the-Blank).
+Quiz_Data Schema.
+Feedback Chat
+Standard chat interface for interaction with the Supervisor. Uses source_chunk_id for contextual retrieval.
+Chat History & Supervisor Endpoint.
+
+
