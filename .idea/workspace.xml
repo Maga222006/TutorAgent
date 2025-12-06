@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9031032-0bfe-4d5a-a04f-d05f23e6c614" name="Changes" comment="" />
+    <list default="true" id="b9031032-0bfe-4d5a-a04f-d05f23e6c614" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents/examiner.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents/examiner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,12 +31,12 @@
     &quot;assignee&quot;: &quot;Maga222006&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;git@github.com:Maga222006/TutorAgent.git&quot;,
-    &quot;accountId&quot;: &quot;81a6fdf5-ecb2-4671-b0bf-a7f08e9e4c9e&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Maga222006/TutorAgent",
+    "accountId": "81a6fdf5-ecb2-4671-b0bf-a7f08e9e4c9e"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -209,6 +213,7 @@
       <workItem from="1764980648433" duration="2000" />
       <workItem from="1764981396220" duration="664000" />
       <workItem from="1765008393666" duration="4365000" />
+      <workItem from="1765030114841" duration="1527000" />
     </task>
     <servers />
   </component>
