@@ -1,33 +1,16 @@
-# AI Tutor Multi-Agent System - Dependencies
-
-# LangChain core packages
 langchain>=0.3.0
 langchain-core>=0.3.0
 langchain-community>=0.3.0
 langchain-text-splitters>=0.3.0
 langgraph>=0.2.0
-
-# LLM Provider - Google Gemini
 langchain-google-genai>=2.0.0
-
-# Embeddings - HuggingFace
 langchain-huggingface>=0.1.0
 sentence-transformers>=2.2.0
-
-# Vector stores
 faiss-cpu>=1.7.0
 chromadb>=0.4.0
-
-# PDF processing
 pypdf>=3.0.0
-
-# Data validation
 pydantic>=2.0.0
-
-# Environment management
 python-dotenv>=1.0.0
-
-# Web server
 fastapi>=0.100.0
 uvicorn[standard]>=0.20.0
 python-multipart>=0.0.6
