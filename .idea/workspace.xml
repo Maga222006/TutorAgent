@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9031032-0bfe-4d5a-a04f-d05f23e6c614" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/replit.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.replit" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +71,7 @@
       <recent name="$PROJECT_DIR$/documents" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/documents" />
     </key>
   </component>
@@ -209,7 +211,7 @@
       <workItem from="1764962286640" duration="14393000" />
       <workItem from="1764980648433" duration="2000" />
       <workItem from="1764981396220" duration="664000" />
-      <workItem from="1765008393666" duration="2601000" />
+      <workItem from="1765008393666" duration="3996000" />
     </task>
     <servers />
   </component>
