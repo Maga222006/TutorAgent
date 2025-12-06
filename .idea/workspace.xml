@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9031032-0bfe-4d5a-a04f-d05f23e6c614" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents/Lecture3.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/replit.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +52,7 @@
     &quot;Python.test.executor&quot;: &quot;Run&quot;,
     &quot;Python.tools_and_utils.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/magomedpatahov/PycharmProjects/TutorAgent/documents&quot;,
@@ -73,7 +73,7 @@
       <recent name="$PROJECT_DIR$/documents" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.Dockerfile">
+  <component name="RunManager" selected="Python.test">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TutorAgent" />
       <option name="ENV_FILES" value="" />
@@ -183,9 +183,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.app" />
         <item itemvalue="Docker.Dockerfile" />
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.tools_and_utils" />
         <item itemvalue="Python.summarizer" />
       </list>
@@ -208,6 +208,8 @@
       <updated>1764962285602</updated>
       <workItem from="1764962286640" duration="14393000" />
       <workItem from="1764980648433" duration="2000" />
+      <workItem from="1764981396220" duration="664000" />
+      <workItem from="1765008393666" duration="2601000" />
     </task>
     <servers />
   </component>
@@ -215,7 +217,7 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TutorAgent$test.coverage" NAME="test Coverage Results" MODIFIED="1764980285303" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/TutorAgent$test.coverage" NAME="test Coverage Results" MODIFIED="1765008419703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/TutorAgent$app.coverage" NAME="app Coverage Results" MODIFIED="1764979351846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/TutorAgent$summarizer.coverage" NAME="summarizer Coverage Results" MODIFIED="1764967919585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agents" />
     <SUITE FILE_PATH="coverage/TutorAgent$tools_and_utils.coverage" NAME="tools_and_utils Coverage Results" MODIFIED="1764972952017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agents" />
