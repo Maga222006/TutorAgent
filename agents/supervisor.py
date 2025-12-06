@@ -7,6 +7,22 @@ from agents.model import llm
 from typing import List, Optional, Tuple
 
 
+def escape_template_braces(text: str) -> str:
+    """
+    Escape curly braces in text to prevent ChatPromptTemplate from 
+    interpreting mathematical notation like {X ∈ A|Y = y} as template variables.
+    
+    Args:
+        text: Input text that may contain curly braces
+    
+    Returns:
+        Text with curly braces escaped ({{ and }})
+    """
+    if text is None:
+        return ""
+    return text.replace("{", "{{").replace("}", "}}")
+
+
 def create_supervisor_agent(docs: Docs):
     """
     Create a Supervisor agent for Socratic tutoring.
@@ -79,6 +95,10 @@ def provide_feedback(
     context_docs = docs.similarity_search("main concepts explanation", k=3)
     context = "\n\n".join(doc.page_content for doc in context_docs)
     
+    escaped_summary = escape_template_braces(summary)
+    escaped_quiz_results = escape_template_braces(quiz_results)
+    escaped_context = escape_template_braces(context)
+    
     prompt = ChatPromptTemplate.from_messages([
         ("system", SUPERVISOR_SYSTEM_PROMPT),
         ("human", SUPERVISOR_USER_PROMPT + "\n\nRelevant Document Context:\n{context}")
@@ -87,9 +107,9 @@ def provide_feedback(
     chain = prompt | llm
     
     response = chain.invoke({
-        "summary": summary,
-        "quiz_results": quiz_results,
-        "context": context
+        "summary": escaped_summary,
+        "quiz_results": escaped_quiz_results,
+        "context": escaped_context
     })
     
     return response.content
@@ -116,15 +136,20 @@ def chat_with_supervisor(
     context_docs = docs.similarity_search(user_message, k=3)
     context = "\n\n".join(doc.page_content for doc in context_docs)
     
+    escaped_summary = escape_template_braces(summary)
+    escaped_context = escape_template_braces(context)
+    escaped_user_message = escape_template_braces(user_message)
+    
     messages: List[Tuple[str, str]] = [
-        ("system", f"You are a Socratic tutor. Document Summary: {summary}\n\nRelevant Context:\n{context}")
+        ("system", f"You are a Socratic tutor. Document Summary: {escaped_summary}\n\nRelevant Context:\n{escaped_context}")
     ]
     
     if conversation_history:
         for msg in conversation_history:
-            messages.append((msg["role"], msg["content"]))
+            escaped_content = escape_template_braces(msg["content"])
+            messages.append((msg["role"], escaped_content))
     
-    messages.append(("human", user_message))
+    messages.append(("human", escaped_user_message))
     
     prompt = ChatPromptTemplate.from_messages(messages)
     chain = prompt | llm
